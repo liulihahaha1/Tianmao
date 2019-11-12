@@ -2,13 +2,18 @@
     <div class="main">
         这是主页！
        {{goods}}
+       <compon/>
     </div>
 </template>
 
 <script>
 import {mapState,mapActions} from "vuex"
 import { Toast } from 'mint-ui'; //使用minit-ui
+import compon from "@/components/components.vue"
 export default {
+    components: {
+        compon
+    },
     computed:{
         ...mapState({
             goods:state=>state.myCar.cars
