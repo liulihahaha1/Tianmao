@@ -1,19 +1,8 @@
-# tianmao
+# 天猫商城项目
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+axios ，swiper ， animate.css ， mint-ui ，fastclick
+rem， directive
+vuex数据仓库已经测试成功
+路由测试成功
+先写三个页面（主页   购物列表   购物车列表）
+组件自己写在components里面 路由已经写好
