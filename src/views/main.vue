@@ -3,8 +3,6 @@
         <!-- 这是主页！ -->
        <!-- {{goods}} -->
        <yIndex></yIndex>
-        这是主页！
-       {{goods}}
        <compon/>
     </div>
 </template>
@@ -16,8 +14,8 @@ import yIndex from "@/components/yIndex"
 import compon from "@/components/components.vue"
 export default {
     components:{
-        yIndex,
-        },
+        yIndex
+    },
     computed:{
         ...mapState({
             goods:state=>state.myCar.cars
