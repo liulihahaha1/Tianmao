@@ -3,6 +3,9 @@
         <!-- 这是主页！ -->
        <!-- {{goods}} -->
        <yIndex></yIndex>
+        这是主页！
+       {{goods}}
+       <compon/>
     </div>
 </template>
 
@@ -13,6 +16,10 @@ import yIndex from "@/components/yIndex"
 export default {
     components:{
         yIndex
+import compon from "@/components/components.vue"
+export default {
+    components: {
+        compon
     },
     computed:{
         ...mapState({
