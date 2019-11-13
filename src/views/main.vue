@@ -13,14 +13,11 @@
 import {mapState,mapActions} from "vuex"
 import { Toast } from 'mint-ui'; //使用minit-ui
 import yIndex from "@/components/yIndex"
-export default {
-    components:{
-        yIndex
 import compon from "@/components/components.vue"
 export default {
-    components: {
-        compon
-    },
+    components:{
+        yIndex,
+        },
     computed:{
         ...mapState({
             goods:state=>state.myCar.cars
@@ -34,6 +31,7 @@ export default {
         });
     }
 }
+
 </script>
 
 <style>
