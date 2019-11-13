@@ -25,8 +25,9 @@
                 <span>苏宁易购</span>
             </div>
             <div class="little-img2">
-                <img src="//gw.alicdn.com/tfs/TB1wSoFa5qAXuNjy1XdXXaYcVXa-196-196.png?avatar=1_110x10000.jpg_.webp" alt="">
-                <span>天猫超市</span>
+                <router-link to="/market"><img src="//gw.alicdn.com/tfs/TB1wSoFa5qAXuNjy1XdXXaYcVXa-196-196.png?avatar=1_110x10000.jpg_.webp" alt="">
+                <span>天猫超市</span></router-link>
+                
             </div>
             <div class="little-img3">
                 <img src="//gw.alicdn.com/tfs/TB1Jc0fSFXXXXXTapXXXXXXXXXX-146-147.png_110x10000.jpg_.webp" alt="">
