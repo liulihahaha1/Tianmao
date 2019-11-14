@@ -1,97 +1,91 @@
 <template>
     <div class="bottom">
-        <div  class="bottom-all">
-            <div class = "bottom-left" style="position:relative">
-                <img class="qua" src="../assets/quan.jpg"  v-if="isshow" alt="" @click="isshow = !isshow">
-                <img class= "duigou" style="width:.2rem" src="../assets/huang.jpg" v-else alt="" @click="isshow = !isshow">
-                <span class="span-left">全选</span>
-              </div>
-              <div class="bottom-right">
-                  <span class="add">合计:</span>
-                  <span class="price">￥297.00</span>
-                  <span class="jiesuan"> 结算（1）</span>
-
-              </div>
-        </div>
-       
+            <div class="btmleft">
+                <span>
+                    <i><img src="../assets/i1.jpg" alt=""></i>
+                    <p>店铺</p>
+                </span>
+                <span>
+                    <i><img src="../assets/i2.jpg" alt=""></i>
+                    <p>客服</p>
+                </span>
+                <span>
+                    <i><img src="../assets/i3.jpg" alt=""></i>
+                    <p>收藏</p>
+                </span>
+            </div>
+            <div class="btmright">
+                <span>加入购物车</span>
+                <span>立即购买</span>
+            </div>
     </div>
 </template>
 
 <script>
+
 export default {
-    data(){
-        return {
-            isshow:false
-        }
-    }
+
+
+
 }
+
 </script>
 
 <style lang="scss">
-
- .bottom{
-        position: fixed;
-        bottom:0;
-        width:100%;
-        height:.45rem;
-        background: white;
-        .bottom-all{
-            width:100%;
-            display: flex;
-            justify-content: space-between;
-            .bottom-left{
-                width:.5;
-                height:.45rem;
-                background:white; 
-                // margin-left:-.4rem;
-                //  display: flex;
-                //  justify-content: space-around;
-                    .qua,.duigou{
-                            display:inline-block;
-                            width:0.20rem ;
-                            height:0.20rem;
-                            }    
-                    .span-left{
-                        width:.9rem;
-                        height:.9rem;
-                        font-size:.16rem;
-                        display: inline-block;
-                        padding:0 0 0 .05rem;
-                    } 
-                   
-                    }
-                     .bottom-right{
-                        display: flex;
-                        justify-content: space-between;
-                        // flex:1;
-                        width:1.9rem;
-                        height:.45rem;
-                        // background: orchid;
-                        line-height:.45rem;
-                        .add{
-                            display: inline-block;
-                            width:.57rem;
-                            height:.37rem;
-                            font-size:.15rem;
-                            // background: indianred;
-                        }
-                        .price{
-                            font-size:.11rem;
-                            color:rgb(233, 112, 32);
-                        }
-                        .jiesuan{
-                            display: inline-block;
-                            width:.7rem;
-                            height:.5rem;
-                            background: rgb(233, 112, 32);
-                            text-align: center;
-                            // padding-left:.05rem;
-                            color:white;
-                        }
-                    }
-                   
+body{
+    height: 10rem;
+}
+.bottom{
+    width: 100%;
+    height: .5rem;
+    margin-top: .5rem;
+    position: fixed;
+    bottom: 0;
+    background-color: salmon;
+    display: flex;
+    .btmleft{
+        width: 40%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        display:flex;
+        color: rgb(153, 153, 153);
+        span{
+            width: 33.33333%;
+            height: 100%;
+            display: block;
+            padding: .1rem;
+            i{
+                
+                img{
+                    width: .22rem;
+                }
             }
-        
-       
+            &:last-child{
+                padding: .075rem
+            }
+        }
     }
+    .btmright{
+        flex: 1;
+        background-color: greenyellow;
+        span{
+            color: white;
+            font-size: .15rem;
+            text-align: center;
+            line-height: .5rem;
+            &:first-child{
+                display: inline-block;
+                width: 50%;
+                height: 100%;
+                background-color: rgb(255, 149, 0)
+            }
+            &:last-child{
+                background-color: rgb(255, 0, 54);
+                display: inline-block;
+                width: 50%;
+                height: 100%;
+            }
+        }
+    }
+}
 </style>

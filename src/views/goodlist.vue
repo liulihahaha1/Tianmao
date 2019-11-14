@@ -17,7 +17,7 @@
 
 <script>
 import shopping from "@/components/shopping"
-import bottom from "@/components/bottom"
+import bottom from "@/components/bottom2"
 
 export default {
     components:{
