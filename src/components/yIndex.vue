@@ -186,7 +186,31 @@
                 </div>
                 </router-link>
             </div>
-            
+            <div class="list-left" 
+                v-for="good in listdata"
+            >
+                <router-link :to="{name:'detail',params:{id:good.spuId}}"
+                tag="div" >
+                <div class="img-box">
+                    <div class="left-img">
+                    <img :src="good.images" alt="">
+                </div>
+                </div>
+                <div class="left-title">
+                    <span>{{good.skuTitle}}</span>
+                </div>
+                <div class="left-yhj">
+                    <div class="yhj-img">
+                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
+                    </div>
+                    <span>5元劵</span>
+                </div>
+                <div class="left-bottom">
+                    <span class="price">￥{{good.originalPrice}}</span>
+                    <span class="look">看相似</span>
+                </div>
+                </router-link>
+            </div>
         </div>
         </div>
        

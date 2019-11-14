@@ -8,8 +8,8 @@
               </div>
               <div class="bottom-right">
                   <span class="add">合计:</span>
-                  <span class="price">￥297.00</span>
-                  <span class="jiesuan"> 结算（1）</span>
+                  <span class="price">￥{{computeTotal.num}}</span>
+                  <span class="jiesuan"> 结算({{computeTotal.num}})</span>
 
               </div>
         </div>
@@ -18,11 +18,15 @@
 </template>
 
 <script>
+import {mapState,mapActions,mapGetters} from "vuex"
 export default {
     data(){
         return {
             isshow:false
         }
+    },
+    computed: {
+         ...mapGetters(["computeTotal"])
     }
 }
 </script> 

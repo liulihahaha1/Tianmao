@@ -24,7 +24,7 @@ export default {
             //前端cars需要多个组件共享，所以前端需要将cars放入到vuex里面进行管理
             //更改state里面的cars，需要调用commit方法来触发具体的mutations的方法，进行同步更新state里面的数据
             commit(SYNC_UPDATE,cars)
-        }, 1000);
+        }, 1);
     },
     reduceGoodInCar({commit},good){
         setTimeout(() => {

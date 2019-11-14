@@ -33,9 +33,9 @@
                 <div class="num">
                     <span class="span1">￥99</span>
                     <span class="span2" >
-                        <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
+                        <span @click="reduceGoodInCar(good)">-</span>
+                        <span>{{good.num}}</span>
+                        <span @click="addGoodInCar(good)">+</span>
                     </span>
                 </div>
             </div>
@@ -63,6 +63,7 @@ export default {
             goods:state=>state.myCar.cars
         }),
         // ...mapGetters(["computeTotal"])
+         ...mapGetters(["computeTotal"])
     },
     methods:{
         ...mapActions(["addGoodInCar","reduceGoodInCar"])
