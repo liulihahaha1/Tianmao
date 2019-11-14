@@ -61,7 +61,11 @@ export default {
             message: '提示',
             position: 'bottom',
             duration: 5000
-        });
+        }); 
+        
+    },
+    mounted(){
+       
     },
     activated(){
         window.addEventListener("scroll",this.listenScroll)
