@@ -328,7 +328,7 @@ export default {
         }, 1000);
         this.$http.get("/api/list/all").then(res => {
              this.listdata = res.data.data.object_list;   
-             console.log(res);
+            //  console.log(res);
         })
     },
     methods:{
