@@ -20,6 +20,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 
 import detop from "@/components/detop.vue"
 import banner from "@/components/banner.vue"
@@ -36,6 +37,11 @@ export default {
     components:{
         detop,banner,information,bottom,evaluation,shop,seemore,moreimg,bottomtop
     }
+=======
+export default {
+   
+    
+>>>>>>> e29885f40c62fb286dee12600cbd20742f148aee
 }
 
 </script>

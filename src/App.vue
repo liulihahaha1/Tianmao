@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <router-view/>
+     <keep-alive >
+        <router-view/>
+     </keep-alive>
   </div>
 </template>
 
 <style lang="scss">
-  *{
-    font-size: .11rem;
-  }
+    *{
+      margin: 0px;
+      padding:0px;
+    }
 </style>

@@ -35,7 +35,7 @@ module.exports = {
         proxy: {
             // 通过代理解决跨域问题
             "/api":{
-                target:"http://47.96.0.211:9000",
+                target:"http://47.104.184.51:8510/sk",
                 changeOrigin:true,
                 pathRewrite:{
                     "^/api":""
