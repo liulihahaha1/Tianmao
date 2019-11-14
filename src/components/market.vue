@@ -18,10 +18,12 @@
         <!-- swiper轮播图 -->
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="http://img.alicdn.com/tfs/TB1KMN5my_1gK0jSZFqXXcpaXXa-1125-867.jpg_970x970Q90s50.jpg_.webp" alt=""></div>
-                <div class="swiper-slide"><img src="http://img.alicdn.com/tfs/TB11Bo5l7L0gK0jSZFtXXXQCXXa-1125-867.jpg_970x970Q90s50.jpg_.webp" alt=""></div>
-                <div class="swiper-slide"><img src="http://img.alicdn.com/tfs/TB1mf4Xmbj1gK0jSZFuXXcrHpXa-1125-867.jpg_970x970Q90s50.jpg_.webp" alt=""></div>
-               
+                <div class="swiper-slide"
+                v-for="banner in banners"
+                >
+                <img :src="banner.img" 
+                :key="banner.id"
+                alt=""></div>
             </div>
              <div class="swiper-pagination"></div> 
         </div>
@@ -30,87 +32,14 @@
         <div style="background: #7C50EF" class="goods-banner"> 
                 <div class="cart-box">
                     <div class="goods-box">
-                    <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
+                        <div class="img-box"
+                        v-for="good in smallgoods"
+                        :key="good.id"
+                        >
+                            <img :src="good.img" alt=""><br/>
+                            <span>网红平价</span>
+                        </div>
                     </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                     <div class="img-box">
-                        <img src="//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp" alt=""><br/>
-                        <span>网红平价</span>
-                    </div>
-                </div>
                 </div>
         </div>
         <!--img  -->
@@ -140,7 +69,41 @@ import Swiper from "swiper"
 export default {
     data(){
         return {
-            isFixed : false
+            isFixed : false,
+            path:"",
+            listdata : [],
+            banners:[
+                {id:0,img:"//img.alicdn.com/tfs/TB1E.yZmRv0gK0jSZKbXXbK2FXa-1125-867.jpg_970x970Q90s50.jpg_.webp"},
+                {id:1,img:"//img.alicdn.com/tfs/TB1poE.ieH2gK0jSZJnXXaT1FXa-1125-867.jpg_970x970Q90s50.jpg_.webp"},
+                {id:2,img:"//img.alicdn.com/tfs/TB1qgqJmKL2gK0jSZPhXXahvXXa-1125-867.jpg_970x970Q90s50.jpg_.webp"},
+                {id:3,img:"//img.alicdn.com/tfs/TB1KpdqVhTpK1RjSZFKXXa2wXXa-1125-867.jpg_970x970Q90s50.jpg_.webp"}
+            ],
+            smallgoods:[
+                {id:0,img:"//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp"},
+                {id:1,img:"//img.alicdn.com/tps/i4/TB10K5beEGF3KVjSZFvwu2_nXXa.png_300x300Q90s50.jpg_.webp"},
+                {id:2,img:"//img.alicdn.com/tps/i4/TB1I7pZdkxz61VjSZFrwu0eLFXa.png_300x300Q90s50.jpg_.webp"},
+                {id:3,img:"//img.alicdn.com/tps/i4/TB1dqP2i7L0gK0jSZFAwu3A9pXa.png_300x300Q90s50.jpg_.webp"},
+                {id:4,img:"//img.alicdn.com/tps/i4/TB1R4Ycmbj1gK0jSZFOwu37GpXa.png_300x300Q90s50.jpg_.webp"},
+                {id:5,img:"//img.alicdn.com/tps/i4/TB1i.oseQ9E3KVjSZFGwu319XXa.png_300x300Q90s50.jpg_.webp"},
+                {id:6,img:"//img.alicdn.com/tps/i4/TB1NP.teL1G3KVjSZFkwu1K4XXa.png_300x300Q90s50.jpg_.webp"},
+                {id:7,img:"//img.alicdn.com/tps/i4/TB1NP.teL1G3KVjSZFkwu1K4XXa.png_300x300Q90s50.jpg_.webp"},
+                {id:8,img:'//img.alicdn.com/tps/i4/TB1VFWFcp67gK0jSZPfwu1hhFXa.png_300x300Q90s50.jpg_.webp'},
+                {id:9,img:"//img.alicdn.com/tps/i4/TB1r.4zlQT2gK0jSZFkwu3IQFXa.png_300x300Q90s50.jpg_.webp"},
+                {id:10,img:"//img.alicdn.com/tps/i4/TB1Uw6ckfb2gK0jSZK9wu1EgFXa.png_300x300Q90s50.jpg_.webp"},
+                {id:11,img:"//img.alicdn.com/tps/i4/TB1gasfhlr0gK0jSZFnwu2RRXXa.png_300x300Q90s50.jpg_.webp"},
+                {id:12,img:"//img.alicdn.com/tps/i4/TB1kIuKgeL2gK0jSZFmwu37iXXa.png_300x300Q90s50.jpg_.webp"},
+                {id:13,img:"//img.alicdn.com/tps/i4/TB1y5KceBWD3KVjSZKPwu1p7FXa.png_300x300Q90s50.jpg_.webp"},
+                {id:14,img:"//img.alicdn.com/tps/i4/TB1KjFNdQxz61VjSZFrwu0eLFXa.png_300x300Q90s50.jpg_.webp"},
+                {id:15,img:"//img.alicdn.com/tps/i4/TB1n7hDlYj1gK0jSZFuwu3rHpXa.png_300x300Q90s50.jpg_.webp"},
+                {id:16,img:"//img.alicdn.com/tps/i4/TB10K5beEGF3KVjSZFvwu2_nXXa.png_300x300Q90s50.jpg_.webp"},
+                {id:17,img:"//img.alicdn.com/tps/i4/TB1I7pZdkxz61VjSZFrwu0eLFXa.png_300x300Q90s50.jpg_.webp"}
+            ],
+            
+        }
+    },
+    methods: {
+        back(){
+            this.$router.push(this.path);
         }
     },
     mounted () {
@@ -253,20 +216,21 @@ export default {
         }  
         .goods-banner{
             height: 1.79rem;
-            background: #7C50EF;
+            // background: #7C50EF;
             position: absolute;
             top:2.55rem;
             width: 100%;
             .cart-box{ 
                 width: 3.59rem;
                 height: 98%;
-                overflow:auto;
+                overflow-x:auto;
                  border-radius: 10px;
                  margin: 0 auto;
                 .goods-box{
                     width: 7.1rem;
                     height: 98%;
                     margin: 0 auto;
+                    margin-top:6px;
                     background: #fff;
                    border-radius: 10px;
                     display: flex;
