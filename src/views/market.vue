@@ -1,6 +1,10 @@
 <template>
     <div class="market">   
-        <market/>
+        <div v-if="!path"></div>
+        <div v-else>
+            <market :path="path"></market>
+        </div>
+        <market :path="path"></market>
         <!-- small-goods-header -->
         <div class="small-goods-header" v-if="isFixed">
             <div class="goods-header">
@@ -27,7 +31,8 @@ export default {
     },
      data(){
         return {
-            isFixed : false
+            isFixed : false,
+            path:""
         }
     },
     methods: {
@@ -51,7 +56,8 @@ export default {
     },
     created() {
         this.$router.beforeEach((to,from,next)=>{
-            // console.log(from.name);
+            // console.log(to.name);
+            // this.path = to.name;
             next();
         })
     },

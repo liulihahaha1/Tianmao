@@ -118,7 +118,7 @@
             <img src="//img.alicdn.com/tfs/TB1nvOfmFT7gK0jSZFpXXaTkpXa-1053-300.gif?getAvatar=1" alt="">
         </div>
         <!-- small siper -->
-         <div class="swiper-container swiper2">
+         <div class="swiper-container2 swiper2">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="//img.alicdn.com/imgextra/i4/6000000001941/TB2poCOBMKTBuNkSne1XXaJoXXa_!!6000000001941-0-at.jpg_450x10000Q50s50.jpg_.webp" alt=""></div>
                 <div class="swiper-slide"><img src="//img.alicdn.com/imgextra/i2/6000000003809/O1CN01EHyYHI1e0Z6baEJr8_!!6000000003809-0-at.jpg_450x10000Q50s50.jpg_.webp" alt=""></div>
@@ -130,6 +130,39 @@
         <div class="center">
 
         </div>
+        <!-- 回退按钮 -->
+        <div class=" fa fa-reply" @click="back">
+            
+        </div>
+        <!-- 列表栏 -->
+            <div class="cart-list">
+            <div class="good-list">
+            <div class="list-left" 
+            v-for="good in listdata"
+            >
+                <div class="img-box">
+                    <div class="left-img">
+                    <img :src="good.second[0].third[0].image" alt="">
+                </div>
+                </div>
+                <div class="left-title">
+                    <span>{{good.second[0].classifyName}}</span>
+                </div>
+                <div class="left-yhj">
+                    <div class="yhj-img">
+                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
+                    </div>
+                    <span>5元劵</span>
+                </div>
+                <div class="left-bottom">
+                    <span class="price">￥23</span>
+                    <span class="look">看相似</span>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+        
     </div>
 
 </template>
@@ -138,9 +171,17 @@
 import Swiper from "swiper"
 // import route from "router   "
 export default {
+    // props:["path"],
     data(){
         return {
-            isFixed : false
+            isFixed : false,
+            path:"",
+            listdata : []
+        }
+    },
+    methods: {
+        back(){
+            this.$router.push(this.path);
         }
     },
     mounted () {
@@ -152,8 +193,24 @@ export default {
              pagination: {
                 el: '.swiper-pagination',
             }
-        })        
-    }
+        })  ;
+         var mySwiper = new Swiper ('.swiper-container2', {
+            loop: true,
+             autoplay:{
+                    delay:2000
+                },
+             pagination: {
+                el: '.swiper-pagination',
+            }
+        })          
+    },
+    created() {
+        this.path = this.$router.options.routes[0].path;
+        this.$http.get("/api/list/all").then(res=>{
+            this.listdata = res.data.data.object_list;   
+        })
+       
+    },
 }
 </script>
 
@@ -328,4 +385,126 @@ export default {
             background-repeat: no-repeat; 
             top:5.6rem;
         }
+        .fa{
+            width: 0.1rem;
+            height: 0.1rem;
+            position: fixed;
+            // top:0.5rem;
+            left: 0.2rem;
+            bottom: 0.5rem;
+            // background: rgba(0,0,0,0.5);
+            font-size: 0.5rem;
+            color: #999;
+        }
+         
+             .cart-list{
+            position: absolute;
+            top:5.6rem;
+            width: 3.75rem;
+            .good-list{
+            width:3.75rem;
+            // height:2.77rem;
+            background:rgb(255, 255, 255);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            img{
+                width:100%;
+                height:100%;
+            }
+            
+            .list-left{
+                width:1.7rem;
+                height:2.67rem;
+                background:rgb(255, 255, 255);
+                border: 1px solid rgb(237, 237, 237);
+                .img-box{
+                    width:1.68rem;
+                    height:1.68rem;
+                    background:rgba(0, 0, 0, 0.03);
+                    .left-img{
+                        width:1.38rem;
+                        height:1.38rem;
+                        position: relative;
+                        top: 14px;
+                        left: 14px;
+                    
+                    }
+
+                }
+                .left-title{
+                    width:1.68rem;
+                    height:0.67rem;
+                    background:rgb(255, 255, 255);
+                    span{
+                        display: block;
+                        height:0.36rem;
+                        font-size:14px;
+                        color: rgb(62, 62, 62);
+                        line-height: 0.2rem;
+                        margin-left: 10px;
+                    }
+                }
+                .left-yhj{
+                    width:1.48rem;
+                    height:0.23rem;
+                    position: relative;
+                    top: -23px;
+                    margin-left: 10px;
+                    span{
+                            color: rgb(255, 0, 54);
+                            font-size:12px;
+                            display: block;
+                            width:0.4rem;
+                            text-align: center;
+                            position: relative;
+                            top: -17px;
+                            left: 86px;
+                            border: 1px solid rgb(255, 0, 54);
+                            box-sizing: border-box;
+                    }
+                    .yhj-img{
+                        width:0.73rem;
+                        height:0.2rem;
+                        img{
+                            position: relative;
+                            top: -85px;
+                            left:0;
+                        }
+                    }
+                }
+                .left-bottom{
+                    width:1.7rem;
+                    height:0.18rem;
+                    position: relative;
+                    top: -19px;
+                    left: 0;
+                    .price{
+                        font-size:16px;
+                        font-weight: 900;
+                        color: rgb(255, 0, 0);
+                        position: relative;
+                        top: -91px;
+                        left: 10px;
+                    }
+                    .look{
+                        display: block;
+                        width:0.54rem;
+                        height:0.23rem;
+                        background: pink;
+                        font-size:12px;
+                        color: rgb(255, 0, 54);
+                        position: relative;
+                        top: -134px;
+                        left: 106px;
+                        text-align: center;
+                        line-height:0.23rem;
+                        border-radius: 11.75px;
+                    }
+                }
+                
+            }
+            }
+        }
+        
 </style>
