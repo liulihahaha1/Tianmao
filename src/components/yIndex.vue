@@ -18,6 +18,7 @@
                <img src="//gw.alicdn.com/tfs/TB1rIFEqCBYBeNjy0FeXXbnmFXa-60-64.png_110x10000.jpg_.webp" alt="">
             </div> 
         </div>
+        
         <!--小圆图-->
         <div class="little-img">
             <div class="little-img1">
@@ -25,8 +26,9 @@
                 <span>苏宁易购</span>
             </div>
             <div class="little-img2">
-                <img src="//gw.alicdn.com/tfs/TB1wSoFa5qAXuNjy1XdXXaYcVXa-196-196.png?avatar=1_110x10000.jpg_.webp" alt="">
-                <span>天猫超市</span>
+                <router-link to="/market" tag="div"><img src="//gw.alicdn.com/tfs/TB1wSoFa5qAXuNjy1XdXXaYcVXa-196-196.png?avatar=1_110x10000.jpg_.webp" alt="">
+                <span>天猫超市</span></router-link>
+                
             </div>
             <div class="little-img3">
                 <img src="//gw.alicdn.com/tfs/TB1Jc0fSFXXXXXTapXXXXXXXXXX-146-147.png_110x10000.jpg_.webp" alt="">
@@ -73,7 +75,19 @@
                     <div class="title">
                         <span>限时抢购</span>
                     </div>
-                    <div class="timer"></div>
+                    <div class="timer">
+                        <div class="hours">
+                            <span>{{s}}</span>
+                            <span class="dd1">:</span>
+                        </div>
+                        <div class="min">
+                            <span>{{m}}</span>
+                            <span class="dd2">:</span>
+                        </div>
+                        <div class="sec">
+                            <span>{{h}}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="box1-bottom">
                     <div class="bottom-img1">
@@ -277,11 +291,20 @@
 </template>
 
 <script>
+// import animate from "animate"
 import Swiper from "swiper"
 import yBackTop from "./yBackTop"
 export default {
     components:{
         yBackTop
+    },
+    data(){
+        return {
+            s:0,
+            m:0,
+            h:0,
+            i:1800
+        }
     },
     mounted () {
         var mySwiper = new Swiper ('.swiper-container', {
@@ -296,12 +319,31 @@ export default {
             
         });
 
+    },
+    created(){
+        setInterval( () => {
+           let i =  this.i;
+            this.h = this.doubleNum(i % 60);
+            this.m = this.doubleNum((parseInt(i / 60) % 60));
+            this.s = this.doubleNum((parseInt(i / 3600)));
+            this.i = i-1;
+        }, 1000);
+    },
+    methods:{
+         doubleNum(n){
+            if(n < 10){
+                return "0" + n;
+            }else{
+                return n;
+            }
+        }
     }
 }
 </script>
 
 <style lang="scss">
     .home{
+        
         .header{
             width: 3.75rem;
             height: 0.9rem;
@@ -472,9 +514,55 @@ export default {
                     .timer{
                         width:0.6772rem;
                         height:0.21rem;
-                        background:orangered;
+                       
                         float: right;
-                        
+                        display: flex;
+                        justify-content: space-between;
+                        span{
+                            font-size:14px;
+                            color: #fff;
+                            display: block;
+                            text-align: center;
+                        }
+                        .hours{
+                            width:0.2rem;
+                            height:0.2rem;
+                            background-color: rgb(0, 0, 0);
+                            border-radius: 3px;
+                            .dd1{
+                               display: block;
+                                color: #000;
+                                font-size: 19px;
+                                font-weight: 500;
+                                position: relative;
+                                top: -22px;
+                                left: 13px;
+                            }
+                            
+                        }
+                    
+                        .min{
+                            width:0.2rem;
+                            height:0.2rem;
+                            background-color: rgb(0, 0, 0);
+                            border-radius: 3px;
+                            .dd2{
+                               display: block;
+                                color: #000;
+                                font-size: 19px;
+                                font-weight: 500;
+                                position: relative;
+                                top: -22px;
+                                left: 13px;
+                            }
+                            
+                        }
+                        .sec{
+                            width:0.2rem;
+                            height:0.2rem;
+                            background-color: rgb(0, 0, 0);
+                            border-radius: 3px;
+                        }
                     }
                 }
                 .box1-bottom{
@@ -747,7 +835,7 @@ export default {
                             width:0.4rem;
                             text-align: center;
                             position: relative;
-                            top: -17px;
+                            top: -19px;
                             left: 86px;
                             border: 1px solid rgb(255, 0, 54);
                             box-sizing: border-box;
@@ -784,7 +872,7 @@ export default {
                         font-size:12px;
                         color: rgb(255, 0, 54);
                         position: relative;
-                        top: -134px;
+                        top: -137px;
                         left: 106px;
                         text-align: center;
                         line-height:0.23rem;
@@ -837,7 +925,7 @@ export default {
                             width:0.4rem;
                             text-align: center;
                             position: relative;
-                            top: -17px;
+                            top: -19px;
                             left: 86px;
                             border: 1px solid rgb(255, 0, 54);
                             box-sizing: border-box;
@@ -874,7 +962,7 @@ export default {
                         font-size:12px;
                         color: rgb(255, 0, 54);
                         position: relative;
-                        top: -134px;
+                        top: -137px;
                         left: 106px;
                         text-align: center;
                         line-height:0.23rem;
@@ -884,6 +972,7 @@ export default {
                 
             }
         }
+    
     }
 
 </style>
