@@ -20,6 +20,10 @@ import "animate.css"
 import "./modules/directive"
 //引入swiper的样式文件
 import "swiper/css/swiper.min.css"
+// import "swiper/js/swiper"
+// import Swiper from 'swiper'
+// Vue.use(Swiper)
+
 new Vue({
   router,
   store,
