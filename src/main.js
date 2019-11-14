@@ -14,8 +14,11 @@ Vue.prototype.$http = axios;
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI);
+// Vue.component(mt-Cell, Cell);
 //引入animation-css库
 import "animate.css"
+import { Cell } from 'mint-ui';
+Vue.component("mt-cell", Cell);
 //引入directive
 import "./modules/directive"
 //引入swiper的样式文件
@@ -23,5 +26,6 @@ import "swiper/css/swiper.min.css"
 new Vue({
   router,
   store,
+
   render: h => h(App)
 }).$mount('#app')
