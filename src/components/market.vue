@@ -86,6 +86,9 @@
             
         </div>
         </div>
+        <div class="back  fa fa-arrow-left" @click="back">
+
+        </div>
     </div>
 
 </template>
@@ -145,6 +148,7 @@ export default {
         })        
     },
     created() {
+       this.path = this.$router.options.routes[0].path;
          this.$http.get("/api/list/all").then(res => {
              this.listdata = res.data.data.object_list;   
             //  console.log(res);
@@ -433,5 +437,13 @@ export default {
                 
             }
             }
+        }
+        .back{
+            font-size: 0.5rem;
+            color: #ccc;
+            opacity: 0.5;
+            position: fixed;
+            bottom: 0.8rem;
+            left: 0.2rem;
         }
 </style>

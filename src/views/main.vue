@@ -31,7 +31,6 @@ import { Toast } from 'mint-ui'; //使用minit-ui
 import yIndex from "@/components/yIndex"
 import compon from "@/components/components.vue"
 export default {
-    
     components:{
         yIndex
     },

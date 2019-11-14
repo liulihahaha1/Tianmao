@@ -158,18 +158,21 @@
         <div class="love">
             <span>猜你喜欢</span>
         </div>
-        <div class="cart-list">
+        
+            <div class="cart-list">
             <div class="good-list">
             <div class="list-left" 
                 v-for="good in listdata"
             >
+                <router-link :to="{name:'detail',params:{id:good.spuId}}"
+                tag="div" >
                 <div class="img-box">
                     <div class="left-img">
-                    <img :src="good.second[0].third[0].image" alt="">
+                    <img :src="good.images" alt="">
                 </div>
                 </div>
                 <div class="left-title">
-                    <span>{{good.second[0].classifyName}}</span>
+                    <span>{{good.skuTitle}}</span>
                 </div>
                 <div class="left-yhj">
                     <div class="yhj-img">
@@ -178,99 +181,15 @@
                     <span>5元劵</span>
                 </div>
                 <div class="left-bottom">
-                    <span class="price">￥23</span>
+                    <span class="price">￥{{good.originalPrice}}</span>
                     <span class="look">看相似</span>
                 </div>
+                </router-link>
             </div>
             
         </div>
         </div>
-
-
-        <!-- <div class="good-list">
-            <div class="list-left">
-                <div class="img-box">
-                    <div class="left-img">
-                    <img src="//gw.alicdn.com/bao/uploaded/i4/3927576815/O1CN01AiYVBy20DJi2scfwN_!!0-item_pic.jpg_290x10000Q75.jpg_.webp" alt="">
-                </div>
-                </div>
-                <div class="left-title">
-                    <span>万能四季罩巾简约现代型全盖沙发垫</span>
-                </div>
-                <div class="left-yhj">
-                    <div class="yhj-img">
-                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
-                    </div>
-                    <span>5元劵</span>
-                </div>
-                <div class="left-bottom">
-                    <span class="price">￥23</span>
-                    <span class="look">看相似</span>
-                </div>
-            </div>
-            <div class="list-right">
-                <div class="img-box">
-                    <div class="left-img">
-                    <img src="//gw.alicdn.com/bao/uploaded/i4/3927576815/O1CN01AiYVBy20DJi2scfwN_!!0-item_pic.jpg_290x10000Q75.jpg_.webp" alt="">
-                </div>
-                </div>
-                <div class="left-title">
-                    <span>万能四季罩巾简约现代型全盖沙发垫</span>
-                </div>
-                <div class="left-yhj">
-                    <div class="yhj-img">
-                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
-                    </div>
-                    <span>5元劵</span>
-                </div>
-                <div class="left-bottom">
-                    <span class="price">￥23</span>
-                    <span class="look">看相似</span>
-                </div>
-            </div>
-        </div>
-        <div class="good-list">
-            <div class="list-left">
-                <div class="img-box">
-                    <div class="left-img">
-                    <img src="//gw.alicdn.com/bao/uploaded/i4/3927576815/O1CN01AiYVBy20DJi2scfwN_!!0-item_pic.jpg_290x10000Q75.jpg_.webp" alt="">
-                </div>
-                </div>
-                <div class="left-title">
-                    <span>万能四季罩巾简约现代型全盖沙发垫</span>
-                </div>
-                <div class="left-yhj">
-                    <div class="yhj-img">
-                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
-                    </div>
-                    <span>5元劵</span>
-                </div>
-                <div class="left-bottom">
-                    <span class="price">￥23</span>
-                    <span class="look">看相似</span>
-                </div>
-            </div>
-            <div class="list-right">
-                <div class="img-box">
-                    <div class="left-img">
-                    <img src="//gw.alicdn.com/bao/uploaded/i4/3927576815/O1CN01AiYVBy20DJi2scfwN_!!0-item_pic.jpg_290x10000Q75.jpg_.webp" alt="">
-                </div>
-                </div>
-                <div class="left-title">
-                    <span>万能四季罩巾简约现代型全盖沙发垫</span>
-                </div>
-                <div class="left-yhj">
-                    <div class="yhj-img">
-                        <img src="//gw.alicdn.com/tfs/TB1a4C4cq1s3KVjSZFAXXX_ZXXa-230-44.png_150x10000.jpg_.webp" alt="">
-                    </div>
-                    <span>5元劵</span>
-                </div>
-                <div class="left-bottom">
-                    <span class="price">￥23</span>
-                    <span class="look">看相似</span>
-                </div>
-            </div>
-        </div> -->
+       
         <yBackTop></yBackTop>
          <!--遮层-->
         <div class="mark-box" v-if="isShow">
@@ -326,9 +245,8 @@ export default {
             this.s = this.doubleNum((parseInt(i / 3600)));
             this.i = i-1;
         }, 1000);
-        this.$http.get("/api/list/all").then(res => {
-             this.listdata = res.data.data.object_list;   
-            //  console.log(res);
+        this.$http.get("/api/homebanner/banner").then(res => {
+            this.listdata =  res.data.data.object_list[6].skuInfo;
         })
     },
     methods:{

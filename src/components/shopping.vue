@@ -1,11 +1,8 @@
 <template>
     <div class="components" >
         <div class="all"
-             v-for="item in 6"
-            :key="item++"
-
-
-
+             v-for="good in goods"
+            :key="good.spuId"
         >
         <div class = "content" style="display:flex">
           
@@ -22,8 +19,8 @@
         <div class="goods">
             <div class="left">
                 <img class="quan" src="../assets/quan.jpg" alt="">
-                <img class= "duigou" src="../assets/huang.jpg" alt="">
-                <img class="goods_img" src="../assets/mi.jpg" alt="">
+                <img class= "duigou" src="../assets/huang.jpg" alt="" width="100px" height="100px">
+                <img class="goods_img" :src="good.images" alt="">
            </div>
             <div class="introduce" >
                 <span class="goods_type">小米米家自动泡沫洁面机多芬男士控油保湿清洁洗脸仪</span>
@@ -54,22 +51,25 @@
 </template>
 
 <script>
+import {mapState,mapActions,mapGetters} from "vuex"
 export default {
     data(){
        return{
-           goods:[]
+        //    goods:[]
        }
-        },
+    },
+    computed:{
+        ...mapState({
+            goods:state=>state.myCar.cars
+        }),
+        // ...mapGetters(["computeTotal"])
+    },
+    methods:{
+        ...mapActions(["addGoodInCar","reduceGoodInCar"])
+    },
     created(){
-      
-        // this.$http.get("/api/good.json").then(res=>{
-
-        //     this.goods=res.data.CommodityList
-        // })
-
-
+       console.log(this.goods);
     }
-    
 
 
 }
@@ -190,8 +190,8 @@ body{
 
         }
           .goods_img{
-            //   width:0.195rem;
-            //   height:.195rem;
+              width:1rem;
+              height:1rem;
               margin-top: -.5rem ;    
               margin-left:.4rem;
               display: block;

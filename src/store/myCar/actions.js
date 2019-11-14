@@ -10,14 +10,14 @@ export default {
             var cars = getCar();  //[{CommodityId:XXX,num:1}]
             //需要判断后端给我们的cars里面是否有你传递来的这个商品，如果有的话需要将对应商品的数量+1
             let isHas = cars.some(item=>{
-                if(item.CommodityId === good.CommodityId){
+                if(item.spuId === good.spuId){
                     item.num++
                     return true;
                 }
             })
             if(!isHas){ //代表添加过来的商品对象good在cars数组里面不存在
                 good.num = 1;
-                cars.push(good)
+                cars.push(good);
             }
             //通知后台更新cars
             localStorage.cars = JSON.stringify(cars)

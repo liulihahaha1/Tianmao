@@ -1,11 +1,8 @@
 <template>
   <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div 
-            class="swiper-slide"
-            v-for="item in banners"
-            :key="item.id"
-          ><img :src="item.img" alt=""></div>
+            <div v-if="!img" class="fa fa-spinner fa-spin"></div>
+            <div v-else class="swiper-slide"><img :src="img" alt=""></div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -17,23 +14,41 @@
 <script>
     // import Swiper from swiper;
  import Swiper from 'swiper'; 
+ import {mapActions} from "vuex"
 // import 'swiper/css/swiper.min.css';
 export default {
       data(){
         return {
+          img:"",
           banners:[
             {id:"1" , img:require("../assets/1.jpg")},
             {id:"2" , img:require("../assets/2.jpg")},
             {id:"3" , img:require("../assets/3.jpg")},
             {id:"4" , img:require("../assets/4.jpg")}
 
-          ]
+          ],
+          good:{}
         }
       },
       methods: {
-       
+        ...mapActions(["addGoodInCar"])
       },
       created(){
+        // console.log(this.$route.params.id)
+        this.$http.get("/api/homebanner/banner/?id="+ this.$route.params.id).then(res => {
+            // console.log(res);
+            var arr = res.data.data.object_list[6].skuInfo;
+            // console.log(arr);
+              for(var j = 0; j < arr.length; j++){
+                // console.log(arr[j].skuId)
+                if(arr[j].spuId == this.$route.params.id){
+                  this.img = arr[j].images;
+                  this.good = arr[j];
+                  // console.log(arr[j])
+                }
+              }
+            
+        })
         this.$nextTick(()=>{
             new Swiper('.swiper-container', {
             pagination: {
@@ -49,6 +64,9 @@ export default {
           })
         })
           
+      },
+      mounted() {
+        
       },
 };
 </script>

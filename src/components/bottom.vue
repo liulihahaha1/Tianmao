@@ -15,17 +15,22 @@
                 </span>
             </div>
             <div class="btmright">
-                <span>加入购物车</span>
-                <span>立即购买</span>
+              <span>加入购物车</span> 
+                 <router-link to="/goodlist"><span @click="addGoodInCar(good)">立即购买</span></router-link>
             </div>
     </div>
 </template>
 
 <script>
-
+import {mapActions} from "vuex"
 export default {
-
-
+    props: ["good"],
+    methods: {
+    ...mapActions(["addGoodInCar"])
+    },
+    created() {
+        console.log(this.good);
+    },
 
 }
 
